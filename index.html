@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA World Cup Pulse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <span class="badge">FIFA World Cup Pulse</span>
+        <h1>Track every player. Read every match. Challenge the AI.</h1>
+        <p class="lede">
+          A World Cup dashboard for player records, performance ratings, score predictions, and quiz
+          battles. Squads, fixtures, and group standings are pulled live from the Zafronix World Cup API.
+          Player ratings and AI score forecasts are computed locally from that real data.
+        </p>
+        <p class="hint" id="apiStatusNote" style="margin: -8px 0 22px; color: #cce6d9;">Loading...</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="label">Tracked players</div>
+            <div class="value" id="trackedCount">0</div>
+            <div class="hint">Updated from tournament records</div>
+          </div>
+          <div class="stat">
+            <div class="label">Featured fixture kickoff</div>
+            <div class="value" id="clockValue">--:--</div>
+            <div class="hint">"FT" once played, otherwise kickoff time</div>
+          </div>
+          <div class="stat">
+            <div class="label">AI challenge wins</div>
+            <div class="value" id="aiWins">0</div>
+            <div class="hint">Closer prediction = higher score</div>
+          </div>
+          <div class="stat">
+            <div class="label">Quiz score</div>
+            <div class="value" id="quizScore">0/0</div>
+            <div class="hint">World Cup trivia streak</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel match-panel">
+        <div>
+          <p class="match-title">Featured fixture</p>
+          <div class="scoreboard">
+            <div class="team">
+              <span class="team-name" id="homeTeam">Argentina</span>
+              <div class="team-meta" id="homeForm">Attack form: high</div>
+            </div>
+            <div>
+              <div class="score" id="liveScore">2 - 1</div>
+              <div class="pulse" id="liveStatus">Live</div>
+            </div>
+            <div class="team">
+              <span class="team-name" id="awayTeam">France</span>
+              <div class="team-meta" id="awayForm">Defensive pressure: strong</div>
+            </div>
+          </div>
+        </div>
+        <div class="tracker">
+          <div class="stat">
+            <div class="label">Top performer</div>
+            <div class="value" id="topPerformer">Lionel Messi</div>
+            <div class="hint" id="topPerformerHint">Creativity, chance creation, and control</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel card">
+        <h2>Player Records</h2>
+        <p class="subtle">Search and filter the real 2026 squads by team, role, or name. Rating is computed from each player's goals, caps, and captain/starter status.</p>
+
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search player or team" />
+          <select id="teamFilter">
+            <option value="All">All teams</option>
+          </select>
+          <select id="liveFilter">
+            <option value="all">All players</option>
+            <option value="captains">Captains only</option>
+            <option value="starters">Starters only</option>
+          </select>
+          <button id="resetFilters" type="button">Reset filters</button>
+        </div>
+
+        <div class="player-list" id="playerList"></div>
+      </div>
+
+      <div class="side-stack">
+        <div class="panel card">
+          <h2>Recent Results</h2>
+          <p class="subtle">Real finished matches from this tournament, refreshed periodically as new results are finalized.</p>
+          <div class="feed" id="liveFeed"></div>
+        </div>
+
+        <div class="panel card">
+          <h2>Challenge the AI</h2>
+          <p class="subtle">Predict the final score. The AI uses form, team strength, and current scoreline to generate its own forecast.</p>
+          <div class="challenge">
+            <div class="challenge-row">
+              <input id="yourHomeScore" type="number" min="0" max="9" value="2" />
+              <input id="yourAwayScore" type="number" min="0" max="9" value="1" />
+              <button id="challengeButton" type="button">Challenge AI</button>
+            </div>
+            <div class="result" id="challengeResult">Your prediction is compared against the AI forecast after each match-state update.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel card">
+        <h2>World Cup Quiz</h2>
+        <p class="subtle">Answer a few tournament questions and track your score. The quiz can be expanded into a full learning mode later.</p>
+        <div id="quizArea"></div>
+      </div>
+
+      <div class="panel card">
+        <h2>Group Standings</h2>
+        <p class="subtle">Live 2026 group tables from the Zafronix API, with FIFA tiebreakers already applied.</p>
+        <div class="filters">
+          <select id="groupSelect"></select>
+        </div>
+        <div class="player-list" id="standingsTable"></div>
+        <h2 style="margin-top: 22px;">Did You Know</h2>
+        <div class="feed" id="triviaList"></div>
+      </div>
+    </section>
+
+    <div class="footer-note">FIFA World Cup Pulse uses real squad, fixture, and standings data from the Zafronix World Cup API (free tier). Player ratings and AI score forecasts are computed locally; real-time in-play tracking and 2D player positions are not available from this API.</div>
+  </main>
+
+  <script src="home.js"></script>
+</body>
+</html>
