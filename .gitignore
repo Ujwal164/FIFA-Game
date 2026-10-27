@@ -1,0 +1,17 @@
+# Dependencies & builds
+node_modules/
+dist/
+*.log
+
+# Secrets — the Zafronix key lives only here
+.env
+.env.*
+!.env.example
+
+# Zafronix data snapshot: free-tier terms forbid redistributing their content
+server/data/
+
+# Local AI tooling (not part of the project)
+.agents/
+.claude/
+skills-lock.json
