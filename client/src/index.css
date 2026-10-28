@@ -1,0 +1,124 @@
+/*
+  Design tokens. Direction: a match-day programme -- chalk-on-grass greens,
+  ink text, one cobalt accent for anything you can click. Every colour is a
+  variable so the dark theme only has to redefine this block.
+*/
+:root {
+  --paper: #eef1ea;
+  --surface: #f8faf6;
+  --ink: #12201a;
+  --muted: #56645c;
+  --rule: #d3dacf;
+  --accent: #2b3fd6;
+  --accent-soft: #e3e7fb;
+  --pitch: #2f6e4a;
+  --pitch-stripe: #2b6744;
+  /* green used for TEXT; the dark pitch is too dim for text on a dark page */
+  --pitch-ink: #2f6e4a;
+  --chalk: #e9f2ea;
+  --win: #1f7a4a;
+  --loss: #b4382e;
+  --draw: #6f7672;
+  --gold: #a87b12;
+  --yellow-card: #e5b700;
+  --red-card: #d23a2e;
+
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Barlow', 'Segoe UI', system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --radius: 6px;
+  --page: 1180px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d1410;
+    --surface: #141d18;
+    --ink: #e3eae4;
+    --muted: #96a59c;
+    --rule: #26332b;
+    --accent: #93a1ff;
+    --accent-soft: #1e2547;
+    --pitch: #1f4a33;
+    --pitch-stripe: #1c442f;
+    --pitch-ink: #6fcf97;
+    --chalk: #cfe3d4;
+    --win: #5cc08a;
+    --loss: #f07a6f;
+    --draw: #9aa39e;
+    --gold: #e0b44a;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
