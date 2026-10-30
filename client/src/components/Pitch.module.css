@@ -1,0 +1,89 @@
+.pitch {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grass {
+  fill: var(--pitch);
+}
+
+.stripe rect {
+  fill: var(--pitch-stripe);
+}
+
+.lines rect,
+.lines circle,
+.lines path {
+  fill: none;
+  stroke: var(--chalk);
+  stroke-width: 0.3;
+  opacity: 0.75;
+}
+
+.spot {
+  fill: var(--chalk);
+  opacity: 0.75;
+}
+
+.marker circle {
+  stroke-width: 0.35;
+  transition: transform 150ms ease-out;
+}
+
+.home circle {
+  fill: var(--surface);
+  stroke: var(--ink);
+}
+.home .label {
+  fill: var(--ink);
+}
+
+.away circle {
+  fill: var(--ink);
+  stroke: var(--surface);
+}
+.away .label {
+  fill: var(--surface);
+}
+
+.highlight circle {
+  fill: var(--accent);
+  stroke: var(--surface);
+}
+.highlight .label {
+  fill: var(--surface);
+}
+
+.approx circle {
+  stroke-dasharray: 0.8 0.6;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 1.9px;
+  font-weight: 600;
+  text-anchor: middle;
+  fill: var(--chalk);
+  paint-order: stroke;
+  stroke: var(--pitch);
+  stroke-width: 0.6px;
+}
+
+a:hover .marker circle,
+a:focus-visible .marker circle {
+  transform: scale(1.15);
+}
+a:focus-visible {
+  outline: none;
+}
+a:focus-visible .marker circle {
+  stroke: var(--accent);
+  stroke-width: 0.8;
+}
