@@ -1,0 +1,97 @@
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 3px solid var(--ink);
+}
+.head h1 {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.kicker {
+  margin: 0 0 var(--space-2);
+  font: 600 0.8rem var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.finish {
+  margin: var(--space-2) 0 0;
+  font: 600 1.2rem var(--font-display);
+  text-transform: uppercase;
+  color: var(--pitch-ink);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.matches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-3);
+}
+.matches li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.squad {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+.squad th,
+.squad td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+.squad thead th {
+  font: 600 0.75rem var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--ink);
+}
+.squad td.num,
+.squad td:nth-child(n + 4) {
+  text-align: right;
+}
+.squad thead th:nth-child(n + 4) {
+  text-align: right;
+}
+.squad tbody th {
+  font-weight: 600;
+}
+.squad abbr {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.lineRow th {
+  padding-top: var(--space-5);
+  font: 700 1.05rem var(--font-display);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+}
+
+.unused td,
+.unused th a {
+  color: var(--muted);
+}
