@@ -1,0 +1,172 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 3px solid var(--ink);
+}
+.head h1 {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+/* The shirt number, printed big like on the back of a kit. */
+.shirt {
+  font: 800 clamp(4rem, 12vw, 8rem) / 0.8 var(--font-display);
+  color: var(--pitch-ink);
+  min-width: 1.2ch;
+}
+
+.kicker {
+  margin: 0 0 var(--space-2);
+  font: 600 0.85rem var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.teamLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
+  gap: 0 var(--space-7);
+  align-items: start;
+}
+/* Keep the pitch in view while the match list scrolls. */
+.layout > section:first-child {
+  position: sticky;
+  top: 90px;
+}
+
+.figure {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.figure figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  border-left: 3px solid transparent;
+  transition: background-color 150ms ease-out, border-color 150ms ease-out;
+}
+.active {
+  background: var(--accent-soft);
+  border-left-color: var(--accent);
+}
+.unused {
+  opacity: 0.6;
+}
+
+.rowMain {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.rowMeta {
+  font: 600 0.72rem var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.opponent {
+  font: 700 1.25rem/1.1 var(--font-display);
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.role {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  max-width: 180px;
+}
+.events li {
+  font: 600 0.75rem var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.goal {
+  background: var(--ink);
+  color: var(--paper);
+}
+.assist {
+  border: 1px solid var(--ink);
+}
+.yellow {
+  background: var(--yellow-card);
+  color: #1a1a1a;
+}
+.red {
+  background: var(--red-card);
+  color: #fff;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .layout > section:first-child {
+    position: static;
+  }
+  .layout figure {
+    max-width: 380px;
+  }
+  .numbers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: auto 1fr;
+  }
+  .events {
+    grid-column: 2;
+    justify-content: flex-start;
+    max-width: none;
+  }
+}
